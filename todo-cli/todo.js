@@ -43,16 +43,17 @@ const todoList = () => {
   const toDisplayableList = (list) => {
     // Format the To-Do list here, and return the output string
     // as per the format given above.
-    let resultString = "";
+    let output = [];
     list.forEach((todoItem) => {
+      let resultString = "";
       todoItem.completed ? resultString += "[x]" : resultString += "[ ]";
       resultString += " ";
       resultString += todoItem.title;
       resultString += " ";
       (todoItem.dueDate === new Date().toISOString().split("T")[0]) ? resultString += "" : resultString += todoItem.dueDate;
-      resultString += "\n";
+      output.push(resultString);
     });
-    return resultString;
+    return output.join("\n");
   }
 
   return {
